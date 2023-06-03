@@ -63,7 +63,7 @@ git clone https://huggingface.co/tiiuae/falcon-7b-instruct ./models/falcon-7b-in
 git lfs pull
 ```
 
-**Hint:** See the [🤗 Open LLM Leaderboard]https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard for best in class open source large language models.
+**Hint:** See the [🤗 Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) for best in class open source LLMs.
 
 ## Usage
 
@@ -71,6 +71,22 @@ git lfs pull
 
 ```Shell
 python ./main.py
+```
+
+The expected output should look something like:
+
+```
+Write a response that appropriately completes the following request.
+
+Request: Tell me everything you know about falcons.
+
+Response: Falcons are large birds of prey that typically eat smaller animals like birds,
+rodents, and reptiles. They are known for their impressive aerial abilities, which they
+use to hunt and catch their prey. Falcons breed in remote areas, typically in mountainous
+regions. They build their nests on cliffs and other locations that are exposed to wind
+and other elements. In addition to hunting for food, falcons are often used by hunters to
+train their hunting skills. They can live up to 10 years in the wild, although some may
+live longer.
 ```
 
 ### Benchmark

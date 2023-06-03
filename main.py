@@ -14,13 +14,11 @@ pipeline = transformers.pipeline(
     device_map="auto",
 )
 
-prompt = """
-Below is an instruction that describes a task. Write
-a response that appropriately completes the request.
+prompt = """Write a response that appropriately completes the following request.
 
 Request: Tell me everything you know about falcons.
-Response:
-"""
+
+Response: """
 
 sequences = pipeline(
     prompt,
