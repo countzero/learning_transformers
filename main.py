@@ -18,7 +18,7 @@ prompt = """Write a response that appropriately completes the following request.
 
 Request: Tell me everything you know about falcons.
 
-Response: """
+Response:"""
 
 sequences = pipeline(
     prompt,
