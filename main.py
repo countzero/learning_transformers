@@ -1,22 +1,29 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import transformers
 import torch
+import transformers
 
-model = ".\\models\\falcon-7b-instruct"
+model_directory = ".\\models\\falcon-7b-instruct"
 
-tokenizer = AutoTokenizer.from_pretrained(model)
+tokenizer = transformers.AutoTokenizer.from_pretrained(model_directory)
 
 pipeline = transformers.pipeline(
     "text-generation",
-    model=model,
+    model=model_directory,
     tokenizer=tokenizer,
     torch_dtype=torch.bfloat16,
     trust_remote_code=True,
     device_map="auto",
 )
 
+prompt = """
+Below is an instruction that describes a task. Write
+a response that appropriately completes the request.
+
+Request: Tell me everything you know about falcons.
+Response:
+"""
+
 sequences = pipeline(
-   "Girafatron is obsessed with giraffes, the most glorious animal on the face of this Earth. Giraftron believes all other animals are irrelevant when compared to the glorious majesty of the giraffe.\nDaniel: Hello, Girafatron!\nGirafatron:",
+    prompt,
     max_length=200,
     do_sample=True,
     top_k=10,
@@ -24,5 +31,5 @@ sequences = pipeline(
     eos_token_id=tokenizer.eos_token_id,
 )
 
-for seq in sequences:
-    print(f"Result: {seq['generated_text']}")
+for sequence in sequences:
+    print(f"{sequence['generated_text']}")
